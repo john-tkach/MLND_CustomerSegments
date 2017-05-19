@@ -11782,7 +11782,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11837,7 +11837,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display a description of the dataset</span>
@@ -11964,7 +11964,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Select three indices of your choice you wish to sample from the dataset</span>
@@ -11974,6 +11974,7 @@ div#notebook {
 <span class="n">samples</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indices</span><span class="p">],</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 <span class="k">print</span> <span class="s2">&quot;Chosen samples of wholesale customers dataset:&quot;</span>
 <span class="n">display</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">samples</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
 </pre></div>
 
 </div>
@@ -12042,6 +12043,57 @@ div#notebook {
 
 </div>
 
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fresh</th>
+      <th>Milk</th>
+      <th>Grocery</th>
+      <th>Frozen</th>
+      <th>Detergents_Paper</th>
+      <th>Delicatessen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>14373.0</td>
+      <td>30627.0</td>
+      <td>14068.0</td>
+      <td>2082.0</td>
+      <td>1456.0</td>
+      <td>14998.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-3960.0</td>
+      <td>-2001.0</td>
+      <td>-5881.0</td>
+      <td>3268.0</td>
+      <td>-1963.0</td>
+      <td>-1234.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-7266.0</td>
+      <td>-5189.0</td>
+      <td>-7087.0</td>
+      <td>-1866.0</td>
+      <td>-2722.0</td>
+      <td>-1120.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12064,9 +12116,9 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>Sample 0 could represent a customer establishment such as a diner.  Much was purchased in the food categories but little in Detergents/paper suggesting they may be primarilty reselling food but only have minimal need for facilities upkeep.</p>
-<p>Sample 1 could represent a customter that is a fast food establishment since the purchases are primarily in fresh and frozen items.</p>
-<p>Sample 2 could represent a customer establishment such as a small household.  The majority of purchases are in fresh products and all other categories are relatively low amounts.</p>
+<p>Sample 0 could represent a customer establishment such as a diner.  Much was purchased in the food categories but little in Detergents/paper suggesting they may be primarilty reselling food but only have minimal need for facilities upkeep.  This sample spends a significant amount more than the dataset mean in each category, in fact, spending is higher than the 3rd quartile in all categories.</p>
+<p>Sample 1 could represent a customter that is a fast food establishment since the purchases are primarily in fresh and frozen items.  Sample 1 tends to spend less than the mean in all categories except for in frozen.  Spending in frozen is over double that of the mean.</p>
+<p>Sample 2 could represent a customer establishment such as a small household.  The majority of purchases are in fresh products and all other categories are relatively low amounts.  This sample spends a significant amount less than the dataset mean in each category.  In fact, in most cases spending is lower than that of 1st quartile.</p>
 
 </div>
 </div>
@@ -12093,7 +12145,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Make a copy of the DataFrame, using the &#39;drop&#39; function to drop the given feature</span>
@@ -12170,7 +12222,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Produce a scatter matrix for each pair of features in the data</span>
@@ -13667,7 +13719,7 @@ SUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>It appears that the Grocery feature is most correlated to the Detergents_Paper feature.  This should confirm my thoughts that the Grocery feature may not necessarily be relevant in my attempt to predict.  There appears to be a linear distribution of the data for the Grocery and Detergents_Paper as most of the data points lie at approximarely y=x.</p>
+<p>It appears that the Grocery feature is most correlated to the Detergents_Paper feature.  This should confirm my thoughts that the Grocery feature may not necessarily be relevant in my attempt to predict.  These features do not have a normal distribution, the data is skewed right, represented as the mean value greater than the mode.</p>
 
 </div>
 </div>
@@ -13699,7 +13751,7 @@ SUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Scale the data using the natural logarithm</span>
@@ -17147,7 +17199,7 @@ H41Go9FoNBqNRrMq+P8BgiKWD2uC/EAAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the log-transformed sample data</span>
@@ -17238,17 +17290,17 @@ Once you have performed this implementation, the dataset will be stored in the v
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># For each feature find the data points with extreme high or low values</span>
 <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">log_data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     
     <span class="c1"># TODO: Calculate Q1 (25th percentile of the data) for the given feature</span>
-    <span class="n">Q1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">log_data</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+    <span class="n">Q1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">log_data</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span> <span class="mi">25</span><span class="p">)</span>
     
     <span class="c1"># TODO: Calculate Q3 (75th percentile of the data) for the given feature</span>
-    <span class="n">Q3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">log_data</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+    <span class="n">Q3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">log_data</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span> <span class="mi">75</span><span class="p">)</span>
     
     <span class="c1"># TODO: Use the interquartile range to calculate an outlier step (1.5 times the interquartile range)</span>
     <span class="n">step</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Q3</span><span class="p">)</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">Q1</span><span class="p">))</span>
@@ -17297,6 +17349,15 @@ Once you have performed this implementation, the dataset will be stored in the v
   </thead>
   <tbody>
     <tr>
+      <th>65</th>
+      <td>4.442651</td>
+      <td>9.950323</td>
+      <td>10.732651</td>
+      <td>3.583519</td>
+      <td>10.095388</td>
+      <td>7.260523</td>
+    </tr>
+    <tr>
       <th>66</th>
       <td>2.197225</td>
       <td>7.335634</td>
@@ -17304,6 +17365,15 @@ Once you have performed this implementation, the dataset will be stored in the v
       <td>5.164786</td>
       <td>8.151333</td>
       <td>3.295837</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>5.389072</td>
+      <td>9.163249</td>
+      <td>9.575192</td>
+      <td>5.645447</td>
+      <td>8.964184</td>
+      <td>5.049856</td>
     </tr>
     <tr>
       <th>95</th>
@@ -17324,6 +17394,33 @@ Once you have performed this implementation, the dataset will be stored in the v
       <td>5.379897</td>
     </tr>
     <tr>
+      <th>128</th>
+      <td>4.941642</td>
+      <td>9.087834</td>
+      <td>8.248791</td>
+      <td>4.955827</td>
+      <td>6.967909</td>
+      <td>1.098612</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>5.298317</td>
+      <td>10.160530</td>
+      <td>9.894245</td>
+      <td>6.478510</td>
+      <td>9.079434</td>
+      <td>8.740337</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>5.192957</td>
+      <td>8.156223</td>
+      <td>9.917982</td>
+      <td>6.865891</td>
+      <td>8.633731</td>
+      <td>6.501290</td>
+    </tr>
+    <tr>
       <th>218</th>
       <td>2.890372</td>
       <td>8.923191</td>
@@ -17333,6 +17430,24 @@ Once you have performed this implementation, the dataset will be stored in the v
       <td>8.759669</td>
     </tr>
     <tr>
+      <th>304</th>
+      <td>5.081404</td>
+      <td>8.917311</td>
+      <td>10.117510</td>
+      <td>6.424869</td>
+      <td>9.374413</td>
+      <td>7.787382</td>
+    </tr>
+    <tr>
+      <th>305</th>
+      <td>5.493061</td>
+      <td>9.468001</td>
+      <td>9.088399</td>
+      <td>6.683361</td>
+      <td>8.271037</td>
+      <td>5.351858</td>
+    </tr>
+    <tr>
       <th>338</th>
       <td>1.098612</td>
       <td>5.808142</td>
@@ -17340,6 +17455,42 @@ Once you have performed this implementation, the dataset will be stored in the v
       <td>9.655090</td>
       <td>2.708050</td>
       <td>6.309918</td>
+    </tr>
+    <tr>
+      <th>353</th>
+      <td>4.762174</td>
+      <td>8.742574</td>
+      <td>9.961898</td>
+      <td>5.429346</td>
+      <td>9.069007</td>
+      <td>7.013016</td>
+    </tr>
+    <tr>
+      <th>355</th>
+      <td>5.247024</td>
+      <td>6.588926</td>
+      <td>7.606885</td>
+      <td>5.501258</td>
+      <td>5.214936</td>
+      <td>4.844187</td>
+    </tr>
+    <tr>
+      <th>357</th>
+      <td>3.610918</td>
+      <td>7.150701</td>
+      <td>10.011086</td>
+      <td>4.919981</td>
+      <td>8.816853</td>
+      <td>4.700480</td>
+    </tr>
+    <tr>
+      <th>412</th>
+      <td>4.574711</td>
+      <td>8.190077</td>
+      <td>9.425452</td>
+      <td>4.584967</td>
+      <td>7.996317</td>
+      <td>4.127134</td>
     </tr>
   </tbody>
 </table>
@@ -17372,6 +17523,42 @@ Once you have performed this implementation, the dataset will be stored in the v
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th>86</th>
+      <td>10.039983</td>
+      <td>11.205013</td>
+      <td>10.377047</td>
+      <td>6.894670</td>
+      <td>9.906981</td>
+      <td>6.805723</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>6.220590</td>
+      <td>4.718499</td>
+      <td>6.656727</td>
+      <td>6.796824</td>
+      <td>4.025352</td>
+      <td>4.882802</td>
+    </tr>
+    <tr>
+      <th>154</th>
+      <td>6.432940</td>
+      <td>4.007333</td>
+      <td>4.919981</td>
+      <td>4.317488</td>
+      <td>1.945910</td>
+      <td>2.079442</td>
+    </tr>
+    <tr>
+      <th>356</th>
+      <td>10.029503</td>
+      <td>4.897840</td>
+      <td>5.384495</td>
+      <td>8.057377</td>
+      <td>2.197225</td>
+      <td>6.306275</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -17411,6 +17598,15 @@ Once you have performed this implementation, the dataset will be stored in the v
       <td>8.390949</td>
       <td>1.098612</td>
       <td>6.882437</td>
+    </tr>
+    <tr>
+      <th>154</th>
+      <td>6.432940</td>
+      <td>4.007333</td>
+      <td>4.919981</td>
+      <td>4.317488</td>
+      <td>1.945910</td>
+      <td>2.079442</td>
     </tr>
   </tbody>
 </table>
@@ -17453,6 +17649,15 @@ Once you have performed this implementation, the dataset will be stored in the v
       <td>6.070738</td>
     </tr>
     <tr>
+      <th>57</th>
+      <td>8.597297</td>
+      <td>9.203618</td>
+      <td>9.257892</td>
+      <td>3.637586</td>
+      <td>8.932213</td>
+      <td>7.156177</td>
+    </tr>
+    <tr>
       <th>65</th>
       <td>4.442651</td>
       <td>9.950323</td>
@@ -17462,6 +17667,42 @@ Once you have performed this implementation, the dataset will be stored in the v
       <td>7.260523</td>
     </tr>
     <tr>
+      <th>145</th>
+      <td>10.000569</td>
+      <td>9.034080</td>
+      <td>10.457143</td>
+      <td>3.737670</td>
+      <td>9.440738</td>
+      <td>8.396155</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>7.759187</td>
+      <td>8.967632</td>
+      <td>9.382106</td>
+      <td>3.951244</td>
+      <td>8.341887</td>
+      <td>7.436617</td>
+    </tr>
+    <tr>
+      <th>264</th>
+      <td>6.978214</td>
+      <td>9.177714</td>
+      <td>9.645041</td>
+      <td>4.110874</td>
+      <td>8.696176</td>
+      <td>7.142827</td>
+    </tr>
+    <tr>
+      <th>325</th>
+      <td>10.395650</td>
+      <td>9.728181</td>
+      <td>9.519735</td>
+      <td>11.016479</td>
+      <td>7.148346</td>
+      <td>8.632128</td>
+    </tr>
+    <tr>
       <th>420</th>
       <td>8.402007</td>
       <td>8.569026</td>
@@ -17469,6 +17710,24 @@ Once you have performed this implementation, the dataset will be stored in the v
       <td>3.218876</td>
       <td>8.827321</td>
       <td>7.239215</td>
+    </tr>
+    <tr>
+      <th>429</th>
+      <td>9.060331</td>
+      <td>7.467371</td>
+      <td>8.183118</td>
+      <td>3.850148</td>
+      <td>4.430817</td>
+      <td>7.824446</td>
+    </tr>
+    <tr>
+      <th>439</th>
+      <td>7.932721</td>
+      <td>7.437206</td>
+      <td>7.828038</td>
+      <td>4.174387</td>
+      <td>6.167516</td>
+      <td>3.951244</td>
     </tr>
   </tbody>
 </table>
@@ -17511,33 +17770,6 @@ Once you have performed this implementation, the dataset will be stored in the v
       <td>6.882437</td>
     </tr>
     <tr>
-      <th>122</th>
-      <td>9.410174</td>
-      <td>5.303305</td>
-      <td>5.501258</td>
-      <td>7.596392</td>
-      <td>3.218876</td>
-      <td>6.756932</td>
-    </tr>
-    <tr>
-      <th>142</th>
-      <td>10.519646</td>
-      <td>8.875147</td>
-      <td>9.018332</td>
-      <td>8.004700</td>
-      <td>2.995732</td>
-      <td>1.098612</td>
-    </tr>
-    <tr>
-      <th>154</th>
-      <td>6.432940</td>
-      <td>4.007333</td>
-      <td>4.919981</td>
-      <td>4.317488</td>
-      <td>1.945910</td>
-      <td>2.079442</td>
-    </tr>
-    <tr>
       <th>161</th>
       <td>9.428190</td>
       <td>6.291569</td>
@@ -17545,69 +17777,6 @@ Once you have performed this implementation, the dataset will be stored in the v
       <td>6.995766</td>
       <td>1.098612</td>
       <td>7.711101</td>
-    </tr>
-    <tr>
-      <th>177</th>
-      <td>9.453992</td>
-      <td>8.899731</td>
-      <td>8.419139</td>
-      <td>7.468513</td>
-      <td>2.995732</td>
-      <td>7.875119</td>
-    </tr>
-    <tr>
-      <th>204</th>
-      <td>7.578657</td>
-      <td>6.792344</td>
-      <td>8.561401</td>
-      <td>7.232010</td>
-      <td>1.609438</td>
-      <td>7.191429</td>
-    </tr>
-    <tr>
-      <th>237</th>
-      <td>9.835851</td>
-      <td>8.252707</td>
-      <td>6.385194</td>
-      <td>8.441176</td>
-      <td>3.332205</td>
-      <td>7.102499</td>
-    </tr>
-    <tr>
-      <th>289</th>
-      <td>10.663966</td>
-      <td>5.655992</td>
-      <td>6.154858</td>
-      <td>7.235619</td>
-      <td>3.465736</td>
-      <td>3.091042</td>
-    </tr>
-    <tr>
-      <th>338</th>
-      <td>1.098612</td>
-      <td>5.808142</td>
-      <td>8.856661</td>
-      <td>9.655090</td>
-      <td>2.708050</td>
-      <td>6.309918</td>
-    </tr>
-    <tr>
-      <th>356</th>
-      <td>10.029503</td>
-      <td>4.897840</td>
-      <td>5.384495</td>
-      <td>8.057377</td>
-      <td>2.197225</td>
-      <td>6.306275</td>
-    </tr>
-    <tr>
-      <th>402</th>
-      <td>10.186371</td>
-      <td>8.466531</td>
-      <td>8.535230</td>
-      <td>5.393628</td>
-      <td>2.302585</td>
-      <td>5.828946</td>
     </tr>
   </tbody>
 </table>
@@ -17695,6 +17864,15 @@ Once you have performed this implementation, the dataset will be stored in the v
       <td>2.079442</td>
     </tr>
     <tr>
+      <th>183</th>
+      <td>10.514529</td>
+      <td>10.690808</td>
+      <td>9.911952</td>
+      <td>10.505999</td>
+      <td>5.476464</td>
+      <td>10.777768</td>
+    </tr>
+    <tr>
       <th>184</th>
       <td>5.789960</td>
       <td>6.822197</td>
@@ -17748,6 +17926,15 @@ Once you have performed this implementation, the dataset will be stored in the v
       <td>3.465736</td>
       <td>3.091042</td>
     </tr>
+    <tr>
+      <th>343</th>
+      <td>7.431892</td>
+      <td>8.848509</td>
+      <td>10.177932</td>
+      <td>7.283448</td>
+      <td>9.646593</td>
+      <td>3.610918</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -17776,7 +17963,7 @@ Once you have performed this implementation, the dataset will be stored in the v
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <p>There were 5 outliers that appeared for more than one feature:</p>
-<h1 id="1---Data-point-66-appeared-in-Fresh-and-Delicatessen.">1 - Data point 66 appeared in Fresh and Delicatessen.<a class="anchor-link" href="#1---Data-point-66-appeared-in-Fresh-and-Delicatessen.">&#182;</a></h1><h1 id="2---Data-point-75-appeared-in-Grocery-and-Detergents_Paper.">2 - Data point 75 appeared in Grocery and Detergents_Paper.<a class="anchor-link" href="#2---Data-point-75-appeared-in-Grocery-and-Detergents_Paper.">&#182;</a></h1><h1 id="3---Data-point-142-appeared-in-Detergents_Paper-and-Delicatessen.">3 - Data point 142 appeared in Detergents_Paper and Delicatessen.<a class="anchor-link" href="#3---Data-point-142-appeared-in-Detergents_Paper-and-Delicatessen.">&#182;</a></h1><h1 id="4---Data-point-154-appeared-in-Detergents_Paper-and-Delicatessen.">4 - Data point 154 appeared in Detergents_Paper and Delicatessen.<a class="anchor-link" href="#4---Data-point-154-appeared-in-Detergents_Paper-and-Delicatessen.">&#182;</a></h1><h1 id="5---Data-point-338-appeared-in-Fresh-and-Detergents_Paper.">5 - Data point 338 appeared in Fresh and Detergents_Paper.<a class="anchor-link" href="#5---Data-point-338-appeared-in-Fresh-and-Detergents_Paper.">&#182;</a></h1><p>I don't believe it is necessary to remove any of these data points from the dataset since the data points above only appear as outliers in no more than two given features.</p>
+<h1 id="1---Data-point-65-appeared-in-2-features:--fresh,-frozen">1 - Data point 65 appeared in 2 features:  fresh, frozen<a class="anchor-link" href="#1---Data-point-65-appeared-in-2-features:--fresh,-frozen">&#182;</a></h1><h1 id="2---Data-point-66-appeared-in-2-features:--fresh,-delicatessen">2 - Data point 66 appeared in 2 features:  fresh, delicatessen<a class="anchor-link" href="#2---Data-point-66-appeared-in-2-features:--fresh,-delicatessen">&#182;</a></h1><h1 id="3---Data-point-75-appeared-in-2-features:--grocery,-detergents_paper">3 - Data point 75 appeared in 2 features:  grocery, detergents_paper<a class="anchor-link" href="#3---Data-point-75-appeared-in-2-features:--grocery,-detergents_paper">&#182;</a></h1><h1 id="4---Data-point-128-appeared-in-2-features:--fresh,-delicatessen">4 - Data point 128 appeared in 2 features:  fresh, delicatessen<a class="anchor-link" href="#4---Data-point-128-appeared-in-2-features:--fresh,-delicatessen">&#182;</a></h1><h1 id="5---Data-point-154-appeared-in-3-features:--milk,-grocery,-delicatessen">5 - Data point 154 appeared in 3 features:  milk, grocery, delicatessen<a class="anchor-link" href="#5---Data-point-154-appeared-in-3-features:--milk,-grocery,-delicatessen">&#182;</a></h1><p>I don't believe it is necessary to remove any of these data points from the dataset since the data points above only appear as outliers in no more than two given features in four of the cases and only one outlier for just 3 features.</p>
 
 </div>
 </div>
@@ -17808,7 +17995,7 @@ Once you have performed this implementation, the dataset will be stored in the v
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
@@ -18188,7 +18375,7 @@ SZKkDgOTJEmSJHUYmCRJkiSpw8AkSZIkSR0GJkmSJEnq+F8ZlRp04I/iGwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display sample log-data after having a PCA transformation applied</span>
@@ -18276,7 +18463,7 @@ SZKkDgOTJEmSJHUYmCRJkiSpw8AkSZIkSR0GJkmSJEnq+F8ZlRp04I/iGwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Apply PCA by fitting the good data with only two dimensions</span>
@@ -18310,7 +18497,7 @@ SZKkDgOTJEmSJHUYmCRJkiSpw8AkSZIkSR0GJkmSJEnq+F8ZlRp04I/iGwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display sample log-data after applying PCA transformation in two dimensions</span>
@@ -18377,7 +18564,7 @@ SZKkDgOTJEmSJHUYmCRJkiSpw8AkSZIkSR0GJkmSJEnq+F8ZlRp04I/iGwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[79]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Create a biplot</span>
@@ -18392,11 +18579,11 @@ SZKkDgOTJEmSJHUYmCRJkiSpw8AkSZIkSR0GJkmSJEnq+F8ZlRp04I/iGwAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[79]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0xd5a4748&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x139ef780&gt;</pre>
 </div>
 
 </div>
@@ -19511,8 +19698,8 @@ iIiIyIsYZBEREREREXkRgywiIiIiIiIvYpBFRERERETkRf8f0/GPO+toFB8AAAAASUVORK5CYII=
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <p>Advantages of the K-Means clustering algorithm are it's speed - it is very fast, it also scales well to large sets of data.</p>
-<p>Advantages of the Gaussian Mixture Model clustering algorithm are again, it's speed - "the fastest algorithm for learning mixture models", it also will not bias a mean to zero or bias the cluster sizes, and mixture models may be thought of as generalizing k-means models.</p>
-<p>Since the data in the biplot doesn't really seem to fall into numerous disctinct clusters, I believe a more general approach might be needed - so I will be using the Gaussian Mixture Model clustering algorithm.  Speed does not really seems to be an iussue for either algorithm so that cancels out, scaling well to large sets of data seems irrelevant since there are only 400 data points, and handling bias well is a good pro for GMM as well.</p>
+<p>Advantages of the Gaussian Mixture Model clustering algorithm are again, it's speed - "the fastest algorithm for learning mixture models" (although not scalable), it also will not bias a mean to zero or bias the cluster sizes, and mixture models may be thought of as generalizing k-means models.  Whereas k-means clusters by "hard assignment" in that there is a certainty as to which data points belong to which clusters, GMM uses a "soft assignment" approrach which will take into account some degree of uncertainty as to which cluster to group with.  Using a prior belief about how to cluster the data and revising that belief makes this method very powerful.</p>
+<p>Since the data in the biplot doesn't really seem to fall into numerous disctinct clusters, I believe a more general approach might be needed - so I will be using the Gaussian Mixture Model clustering algorithm.  Speed does not really seems to be an issue for either algorithm so that cancels out, scaling well to large sets of data seems irrelevant since there are only 400 data points, and handling bias well is a good pro for GMM as well.</p>
 
 </div>
 </div>
@@ -19538,7 +19725,7 @@ iIiIyIsYZBEREREREXkRgywiIiIiIiIvYpBFRERERETkRf8f0/GPO+toFB8AAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[161]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span>
@@ -19623,7 +19810,7 @@ iIiIyIsYZBEREREREXkRgywiIiIiIiIvYpBFRERERETkRf8f0/GPO+toFB8AAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[162]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the results of the clustering from implementation</span>
@@ -20307,7 +20494,7 @@ iIhyh4EQERERERHlzv8FjgPSGLqmpLYAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[163]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Inverse transform the centers</span>
@@ -20321,6 +20508,9 @@ iIhyh4EQERERERHlzv8FjgPSGLqmpLYAAAAASUVORK5CYII=
 <span class="n">true_centers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">true_centers</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="n">true_centers</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">segments</span>
 <span class="n">display</span><span class="p">(</span><span class="n">true_centers</span><span class="p">)</span>
+
+<span class="n">true_centers</span> <span class="o">=</span> <span class="n">true_centers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;50%&#39;</span><span class="p">])</span>
+<span class="n">true_centers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -20373,6 +20563,235 @@ iIhyh4EQERERERHlzv8FjgPSGLqmpLYAAAAASUVORK5CYII=
 
 </div>
 
+<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1341e2e8&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+2/L888+zYcMGBg8ezLHHHstVV13FNddcw4MPPgjA1KlTa6wHMH/+fF566SW6du3K888/zz333MOL
+L77IRx99RN++fenXrx8A48aN46abbqJbt24899xznHfeecyZU/mO8RtvvMFTTz3FkiVLKC0t5ZRT
+TvlYDN/85je58MILOf300/nwww/ZuHHjDp+1oqKCWbNmMWLECABuueUW2rVrx7p16+jfvz9f+cpX
+aN++Pe+//z4lJSX85Cc/4corr+R73/se119//XZjXrFiBc888wxFRUUN+vsxqZUkSZKkWpo9ezYL
+FizYMjq6Zs0ali5dSvPmzWtdb8CAAXTt2hWAp59+mhNOOIEWLVrQokULvvzlLwOwdu1annnmGUaO
+HLnlmhs2bNhyfOKJJ7LHHnvQo0cP3nzzzRpjPeKII5gyZQorVqzg5JNPplu3btt8rnXr1tGnTx+g
+cqR27NixAFx33XXce++9ALz++ussXbqU9u3bs8cee/DVr34VgDPOOIOTTz55hzGPHDmywRNaMKmV
+JEmStqvLpIca9frLr/pSo15f9ffKK69QVFTE/vvvT0qJn/3sZwwfPnyrOnPnzt3q+/bqtW7deof3
+3LRpE5/4xCcoLy+v8fxee+211b1q8m//9m8MHDiQhx56iOOOO46bb76ZIUNqXv158zu11WN99NFH
++cMf/kCrVq045phjWL9+fY3tI2KHMdfmuevCpFaSJElSk5XrLXhWr17N+PHjOf/884kIhg8fzo03
+3siQIUNo1qwZf/7zn+nUqRN7770377333pZ226pX3eDBg/nGN77BpZdeSkVFBQ8++CDjxo1jn332
+oWvXrtx9992MHDmSlBILFiygd+/e24y1egyvvPIKhxxyCBdccAF//etfWbBgwTaT2pqsWbOGfffd
+l1atWrFkyRKeffbZLec2bdrEzJkzGTVqFLfffjtHHnlknWJuCCa1kiRJklTF5qm4H330EXvuuSdn
+nnkmF198MQDnnHMOy5cvp2/fvqSU6NChA/fddx+9evWiqKiI3r17M2bMGC688MIa61XXv39/SktL
+6dWrFx07dqS4uJi2bdsCMH36dM4991wmT57MRx99xKhRo7abIFaPYcOGDfz617+mWbNmHHDAAfzH
+f/zHTv13GDFiBDfddBPdu3fns5/9LIMGDdpyrnXr1sybN4/Jkyez//77M2PGjDrF3BBiW0PVTV1J
+SUkqKyvLdRjaRYpvLW70eywcvbDR7yHp4xp7Wh84tU9S/Tj9eNdavHgx3bt3z3UYu9TatWtp06YN
+H3zwAUcffTRTp06lb9++uQ5ru9q0acPatWsb7Ho1/d4j4oWUUsmO2jpSK0mSJEk5NG7cOF5++WXW
+r1/P6NGjm3xC29TUK6mNiIuAc4AELATOBloBM4AuwHLg1JTSP7L6lwJjgY3ABSmlh7PyfsA0oCXw
+O+DClK9DyJIkSZK0E26//fZdcp+3336boUOHfqz8scceo3379jt1rYYcpa2vOie1EdEJuADokVJa
+FxF3AaOAHsBjKaWrImISMAn4TkT0yM4fDhwEPBoRh6aUNgI3Al8HnqMyqR0BzKrHc0mSJEmSqmjf
+vv02VybOZ3vUs/2eQMuI2JPKEdq/AScAt2bnbwVOzI5PAO5MKW1IKb0KLAMGRMSBwD4ppWez0dnb
+qrSRJEmSJGmb6pzUppRWAtcAfwXeANaklGYDHVNKb2TV/g50zI47Aa9XucSKrKxTdly9/GMiYlxE
+lEVE2erVq+sauiRJkiRpN1HnpDYi9qVy9LUrldOJW0fEGVXrZCOvDfZubEppakqpJKVU0qFDh4a6
+rCRJkiQpT9Vnoaj/D3g1pbQaICJ+C3weeDMiDkwpvZFNLV6V1V8JHFylfeesbGV2XL1ckiRJUoH7
+8VePb9Dr/fuMB3dYp6ioiOLi4i371J511llcdNFF7LHHtscEly9fzvHHH89LL71EWVkZt912G9dd
+d91Ox/fTn/6UcePG0apVq51uW6jq807tX4FBEdEqIgIYCiwGHgBGZ3VGA/dnxw8AoyJir4joCnQD
+5mVTld+NiEHZdc6q0kaSJEmSdqmWLVtSXl7OokWLeOSRR5g1axbf+973at2+pKSkTgktVCa1H3zw
+QZ3aFqr6vFP7HDATmE/ldj57AFOBq4BhEbGUytHcq7L6i4C7gJeB/wdMyFY+BjgP+AWVi0f9BVc+
+liRJktQE7L///kydOpXrr7+elBIbN25k4sSJ9O/fn169enHzzTd/rM3cuXM5/vjKEea1a9dy9tln
+U1xcTK9evbjnnnsAOPfccykpKeHwww/n8ssvB+C6667jb3/7G1/84hf54he/CMDs2bM54ogj6Nu3
+LyNHjtyylc6kSZPo0aMHvXr14tvf/jYAd999Nz179qR3794cffTRANuMd+7cuRxzzDGccsopHHbY
+YZx++unk666q9dqnNqV0OXB5teINVI7a1lR/CjClhvIyoGd9YpEkSZKkxnDIIYewceNGVq1axf33
+30/btm15/vnn2bBhA4MHD+bYY4+lctLpx33/+9+nbdu2LFy4EIB//OMfAEyZMoV27dqxceNGhg4d
+yoIFC7jgggu49tprefzxx9lvv/146623mDx5Mo8++iitW7fm6quv5tprr2XChAnce++9LFmyhIjg
+n//8JwBXXnklDz/8MJ06ddpS9stf/rLGeAH++Mc/smjRIg466CAGDx7M008/zZFHHtnY/zkbXL2S
+WkmSJEkqJLNnz2bBggXMnDkTgDVr1rB06VIOPfTQGus/+uij3HnnnVu+77vvvgDcddddTJ06lYqK
+Ct544w1efvllevXqtVXbZ599lpdffpnBgwcD8OGHH3LEEUfQtm1bWrRowdixYzn++OO3jAoPHjyY
+MWPGcOqpp3LyySdvN97mzZszYMAAOneuXN6oT58+LF++3KRWkiRJknY3r7zyCkVFRey///6klPjZ
+z37G8OHDt6qzfPnyWl/v1Vdf5ZprruH5559n3333ZcyYMaxfv/5j9VJKDBs2jDvuuONj5+bNm8dj
+jz3GzJkzuf7665kzZw433XQTzz33HA899BD9+vXjhRde2Ga8c+fOZa+99tryvaioiIqKilo/Q1Ni
+Uqv6u6Jt49+j6ycb/x6SJElSNatXr2b8+PGcf/75RATDhw/nxhtvZMiQITRr1ow///nPdOrUaZvt
+hw0bxg033MBPf/pToHL68bvvvkvr1q1p27Ytb775JrNmzeKYY44BYO+99+a9995jv/32Y9CgQUyY
+MIFly5bxmc98hvfff5+VK1dy0EEH8cEHH3DccccxePBgDjnkEAD+8pe/MHDgQAYOHMisWbN4/fXX
+dzrefGRSK0mSJKnJqs0WPA1t3bp19OnTZ8uWPmeeeSYXX3wxAOeccw7Lly+nb9++pJTo0KED9913
+3zavddlllzFhwgR69uxJUVERl19+OSeffDKf+9znOOywwzj44IO3TC8GGDduHCNGjOCggw7i8ccf
+Z9q0aZx22mls2LABgMmTJ7P33ntzwgknsH79elJKXHvttQBMnDiRpUuXklJi6NCh9O7dm169eu1U
+vPko8nWFq5KSklRWVpbrMAS7ZKS2eBeM1C4cvbDR7yHp47pMeqjR77H8qi81+j0k7b4au5+yj9ra
+4sWL6d69e67D0C5W0+89Il5IKZXsqG199qmVJEmSJCmnTGolSZIkSXnLpFaSJElSk5Kvr0iqbur7
++zaplSRJktRktGjRgrffftvEtkCklHj77bdp0aJFna/h6seSJEmSmozOnTuzYsUKVq9enetQtIu0
+aNGCzp0717m9Sa0kSZKkJqNZs2Z07do112Eojzj9WJIkSZKUt0xqJUmSJEl5y6RWkiRJkpS3TGol
+SZIkSXnLpFaSJEmSlLdMaiVJkiRJecukVpIkSZKUt0xqJUmSJEl5y6RWkiRJkpS3TGolSZIkSXnL
+pFaSJEmSlLdMaiVJkiRJecukVpIkSZKUt+qV1EbEJyJiZkQsiYjFEXFERLSLiEciYmn2c98q9S+N
+iGUR8aeIGF6lvF9ELMzOXRcRUZ+4JEmSJEmFob4jtf8N/L+U0mFAb2AxMAl4LKXUDXgs+05E9ABG
+AYcDI4CfR0RRdp0bga8D3bLPiHrGJUmSJEkqAHVOaiOiLXA08EuAlNKHKaV/AicAt2bVbgVOzI5P
+AO5MKW1IKb0KLAMGRMSBwD4ppWdTSgm4rUobSZIkSZK2qT4jtV2B1cCvIuKPEfGLiGgNdEwpvZHV
++TvQMTvuBLxepf2KrKxTdly9/GMiYlxElEVE2erVq+sRuiRJkiRpd1CfpHZPoC9wY0rpc8D7ZFON
+N8tGXlM97rGVlNLUlFJJSqmkQ4cODXVZSZIkSVKeqk9SuwJYkVJ6Lvs+k8ok981sSjHZz1XZ+ZXA
+wVXad87KVmbH1cslSZIkSdquOie1KaW/A69HxGezoqHAy8ADwOisbDRwf3b8ADAqIvaKiK5ULgg1
+L5uq/G5EDMpWPT6rShtJkiRJkrZpz3q2/yYwPSKaA68AZ1OZKN8VEWOB14BTAVJKiyLiLioT3wpg
+QkppY3ad84BpQEtgVvaRJEmSJGm76pXUppTKgZIaTg3dRv0pwJQaysuAnvWJRZIkSZJUeOq7T60k
+SZIkSTljUitJkiRJylsmtZIkSZKkvGVSK0mSJEnKWya1kiRJkqS8ZVIrSZIkScpbJrWSJEmSpLxl
+UitJkiRJylsmtZIkSZKkvGVSK0mSJEnKWya1kiRJkqS8ZVIrSZIkScpbJrWSJEmSpLxlUitJkiRJ
+ylsmtZIkSZKkvLVnrgOQJEmS1LiKby1u9HssHL2w0e8h1cSRWkmSJElS3nKkVtqFbhg/p1GvP+Gm
+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
+QmCC
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -20394,8 +20813,8 @@ iIhyh4EQERERERHlzv8FjgPSGLqmpLYAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>A customer assigned to cluster 0 should best identify with the establishments represented by the feature set of segment 0.  Much of the spending is in the grocery, milk and detergents_paper items which most correlates to the locatiosn indicated in the biplot.</p>
-<p>A customer assigned to cluster 1 should best identify with the establishments represented by the feature set of segment 1.  This is represented by a large portion in the fresh and frozen items with less emphasis on the detergents_paper and delicatessen.</p>
+<p>A customer assigned to cluster 0 should best identify with the establishments represented by the feature set of segment 0.  Much of the spending is in the grocery, milk and detergents_paper items which most correlates to the locations indicated in the biplot.  I believe this could represent something such as a grocery store since much of the spending is on grocery items (more than the 3rd quartile amount) and other common necessities such as milk and paper products (both also very near the 3rd quartile amount).</p>
+<p>A customer assigned to cluster 1 should best identify with the establishments represented by the feature set of segment 1.  This is represented by a large portion in the fresh and frozen items with less emphasis on the detergents_paper and delicatessen.  I believe this could possibly represent a fast food establishment or maybe a food truck as much of the spending is on various food items, especially fresh which is over the 2nd quartile amount while the other categories spending are are much closer to the 1st quartile amount.</p>
 
 </div>
 </div>
@@ -20491,7 +20910,7 @@ Sample point 2 predicted to be in Cluster 1
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>The first thing that comes to mind with this question is the separation between households/small businesses, and larger businesses.  The wholesale distributor could use customer segments by making some basic assumptions.  An example could be that if one segment displays certain patterns of large/expensive purchases they could probably assume it a large business since households would probably spend less.  At this point they may be able to conclude that a business may react more positively to a change in a delivery service, given that many households operate on different schedules and would probably appreciate a more regular 5 days a week delivery schedule.  Given this point I think it would be safe to assume that this change would not affect all customers equally.  An A/B test could be applied to determine which group of customers are affected most.  One variant could be applied where the scheulde remains at 5 days a week with those who spend less, and the other variant applied where the schedule changes to 3 days a week for those who spend more.  After gathering feedback and reversing which variant is applied to which group and again gathering feedback, the wholesale distributor would then be able to determine which customers react most positively to the change in delivery service.</p>
+<p>The first thing that comes to mind with this question is the separation between households/small businesses, and larger businesses.  The wholesale distributor could use customer segments by making some basic assumptions.  An example could be that if one segment displays certain patterns of large/expensive purchases they could probably assume it a large business since households would probably spend less.  At this point they may be able to conclude that a business may react more positively to a change in a delivery service, given that many households operate on different schedules and would probably appreciate a more regular 5 days a week delivery schedule.  Given this point I think it would be safe to assume that this change would not affect all customers equally.  An A/B test could be applied to determine which group of customers are affected most.  One variant could be applied where the scheulde remains at 5 days a week with those who spend less, and the other variant applied where the schedule changes to 3 days a week for those who spend more.  After gathering feedback and reversing which variant is applied to which group and again gathering feedback, the wholesale distributor would then be able to determine which customers react most positively to the change in delivery service.  For implementing this A/B test a good approach would be to take a sample set of customers from each customer segment, and split each sample set into two groups.  Thus one group from the sample set of customer segment 0 will be tested with the A variant and the  other group with the B variant.  The same would be performed for the sample set of customer segment 1.  After positive reaction data is recorded we can compare differences between both groups of each set to determine delivery preference.</p>
 
 </div>
 </div>
